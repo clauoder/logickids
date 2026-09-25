@@ -1,17 +1,14 @@
-LOGICKIDS - versión final para Cloudflare Pages + D1
+LOGICKIDS - Cloudflare Pages (modo avanzado)
 
-Estructura:
+Archivos:
 - index.html
-- functions/api/[[path]].js
+- _worker.js
 
-Configuración necesaria en Cloudflare Pages:
+Configuración del proyecto Pages:
+- Build command: vacío
+- Build output directory: .
 - Binding D1: DB -> logickids-madeg-db
 - Secret: ADMIN_PASSWORD
 
-Esta versión usa las tablas actuales de D1:
-- students
-- sessions
-- progress
-
-No es necesario volver a ejecutar schema-update.sql.
-Los usuarios y avances existentes permanecen en la base D1.
+_worker.js atiende /api/* y sirve los archivos estáticos mediante env.ASSETS.
+No es necesario ejecutar SQL nuevamente.
